@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useRef } from 'react';
 import { GoslingComponent } from 'gosling.js';
 
@@ -34,21 +35,24 @@ function WidgetNavigation() {
 
 	return (
 		<>
-			<div style={{ marginTop: 30, marginLeft: 80 }}>
-				{'Zoom To Chromosome: '}
-				<select name="Chromosome" onChange={(e) => gosRef.current?.api.zoomTo('navigation-track-id', e.currentTarget.value, 0, 1000)}>
-					{CHRS.map(d => <option key={d} value={d}>{d}</option>)}
-				</select>
-			</div>
+			<div>
+				<div style={{ marginTop: 30, marginLeft: 80 }}>
+					{'Zoom To Chromosome: '}
+					<select name="Chromosome" onChange={(e) => gosRef.current?.api.zoomTo('navigation-track-id', e.currentTarget.value, 0, 1000)}>
+						{CHRS.map(d => <option key={d} value={d}>{d}</option>)}
+					</select>
+				</div>
 
-			<div style={{ marginTop: 30, marginLeft: 80 }}>
-				{'Zoom To Gene: '}
-				<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToGene('navigation-track-id', 'MYC', 3000, 1000)}>MYC</button>
-				<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToGene('navigation-track-id', 'CCNK', 3000, 1000)}>CCNK</button>
-			</div>
+				<div style={{ marginTop: 30, marginLeft: 80 }}>
+					{'Zoom To Gene: '}
+					
+					<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToGene('navigation-track-id', 'MYC', 3000, 1000)}>MYC</button>
+					<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToGene('navigation-track-id', 'CCNK', 3000, 1000)}>CCNK</button>
+				</div>
 
-			<div style={{ marginTop: 30, marginLeft: 80 }}>
-				<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToExtent('navigation-track-id', 1000)}>Zoom To Extent</button>
+				<div style={{ marginTop: 30, marginLeft: 80 }}>
+					<button className='mr-3 p-1 rounded bg-slate-200' onClick={() => gosRef.current?.api.zoomToExtent('navigation-track-id', 1000)}>Zoom To Extent</button>
+				</div>
 			</div>
 
 			<GoslingComponent
@@ -97,17 +101,14 @@ function WidgetNavigation() {
 						},
 						{
 							data: {
-								url: 'https://server.gosling-lang.org/api/v1/tileset_info/?d=cistrome-multivec',
-								type: 'multivec',
-								row: 'sample',
-								column: 'position',
-								value: 'peak',
-								categories: ['sample 1', 'sample 2', 'sample 3', 'sample 4']
+								"url": "https://s3.amazonaws.com/gosling-lang.org/data/ExcitatoryNeurons-insertions_bin100_RIPnorm.bw",
+								"type": "bigwig",
+								"column": "position",
+								"value": "peak"
 							},
-							mark: 'area',
+							mark: 'bar',
 							x: {field: 'position', type: 'genomic'},
 							y: {field: 'peak', type: 'quantitative', axis: 'none'},
-							color: {field: 'sample', type: 'nominal'},
 							width: 1000,
 							height: 30
 						},
