@@ -1,7 +1,7 @@
 {
   "name": "gosling-react-template",
   "version": "0.1.0",
-  "homepage": "https://gosling-lang.github.io/gosling-react-template/",
+  "homepage": "https://keller-mark.github.io/gosling-kpmp-example/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
@@ -17,9 +17,7 @@
     "pixi.js": "6.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.2",
-    "react-vega": "^7.5.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
