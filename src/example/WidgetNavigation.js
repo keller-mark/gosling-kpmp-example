@@ -340,7 +340,7 @@ function WidgetNavigation(props) {
 
 			const chromInfo = new Promise((resolve, reject) => {
 				ChromosomeInfo(
-					`http://higlass.io/api/v1/chrom-sizes/?id=${REFERENCE_TILESETS[assembly].chromosomes}`,
+					`https://higlass.io/api/v1/chrom-sizes/?id=${REFERENCE_TILESETS[assembly].chromosomes}`,
 					(chromInfo) => { resolve(chromInfo) }
 				);
 			});
