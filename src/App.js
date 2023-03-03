@@ -1,12 +1,23 @@
 /* eslint-disable */
 import * as React from 'react';
+import {
+  ThemeProvider,
+  StylesProvider,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
 import WidgetNavigation from './example/WidgetNavigation';
+
+const generateClassName = createGenerateClassName({
+	disableGlobal: false, // Class names need to be deterministic,
+});
 
 function App() {
 	return (
-		<div className='flex flex-row h-full w-full'>
-			<WidgetNavigation/>
-		</div>
+		<StylesProvider generateClassName={generateClassName}>
+			<ThemeProvider>
+				<WidgetNavigation />
+			</ThemeProvider>
+		</StylesProvider>
 	);
 }
 
